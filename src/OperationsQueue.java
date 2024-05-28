@@ -1,4 +1,5 @@
 package src;
+
 import java.util.List;
 import java.util.ArrayList;;
 public class OperationsQueue {
@@ -10,7 +11,9 @@ public class OperationsQueue {
         for (int i = 0; i < totalSimulation; i++) {
             int random = (int) (Math.random() * 200) - 100;
             if (random != 0) {
-                operations.add(random);
+                synchronized (operations) {
+                    operations.add(random);
+                }
             }
             System.out.println(i + ". New operation added: " + random);
             // add small delay to simulate the time taken for a new customer to arrive
@@ -20,10 +23,15 @@ public class OperationsQueue {
                 e.printStackTrace();
             }
         }
-        operations.add(-9999);
+        synchronized (operations) {
+            operations.add(-9999);
+        }
     }
     public void add(int amount) {
-        operations.add(amount);
+        synchronized (operations) {
+            operations.add(amount);
+        }
+
     }
 
     public synchronized int getNextItem() {
@@ -35,6 +43,7 @@ public class OperationsQueue {
                 e.printStackTrace();
             }
         }
-        return operations.remove(0);
-    }
+        synchronized (operations) {
+            return operations.remove(0);
+        }    }
 }
