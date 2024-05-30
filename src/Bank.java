@@ -18,6 +18,7 @@ public class Bank {
         while (true) {
             int amount = operationsQueue.getNextItem();
             if(amount == -9999) {
+                operationsQueue.add(-9999);
                 break;
             }
             if (amount>0) {
@@ -37,12 +38,13 @@ public class Bank {
         while (true) {
             int amount = operationsQueue.getNextItem();
             if(amount == -9999) {
+                operationsQueue.add(-9999);
                 break;
             }
 
             if(balance+amount<0){
 
-                System.out.println("Not enough balance to deposite "+amount);
+                System.out.println("Not enough balance to withdraw "+amount);
                 continue;
             }
 

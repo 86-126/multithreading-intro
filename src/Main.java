@@ -33,10 +33,10 @@ public class Main {
             bank.withdraw();
         });
         withdrawThread.start();
-        System.out.println("coompleted");
+        System.out.println("completed");
 
 
-        System.out.println("coompleted");
+        System.out.println("completed");
 
     }
 }
