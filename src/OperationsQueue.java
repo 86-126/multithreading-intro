@@ -7,7 +7,7 @@ public class OperationsQueue {
 
     public void addSimulation(int totalSimulation) {
 
-        // Add 50 random numbers in the operations list. The number will be range from -100 to 100. It cannot be zero.
+        // Add 10 random numbers in the operations list. The number will be range from -100 to 100. It cannot be zero.
         for (int i = 0; i < totalSimulation; i++) {
             int random = (int) (Math.random() * 200) - 100;
             if (random != 0) {
