@@ -22,12 +22,15 @@ public class Bank {
                 break;
             }
             if (amount>0) {
-                   balance =  balance + amount;
-                   System.out.println("Deposited: " + amount + " Balance: " + balance);
+                   synchronized (this) {
+                       balance =  balance + amount;
+                       System.out.println("Deposited: " + amount + " Balance: " + balance);
+
+                   }
 
                }
 
-            else{
+            else {
                 operationsQueue.add(amount);
                 System.out.println("operation added back "+amount);
             }
@@ -51,12 +54,14 @@ public class Bank {
             }
 
             if (amount < 0) {
+                synchronized (this) {
                     balance = balance + amount;
                     System.out.println("Withdrawn: " + amount + " Balance: " + balance);
+                }
 
             }
 
-            else{
+            else {
                 operationsQueue.add(amount);
                 System.out.println("operation added back "+amount);
             }

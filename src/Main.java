@@ -15,10 +15,10 @@ public class Main {
         Bank bank = new Bank("123", operationsQueue);
 
         System.out.println("Initializing simulation....");
-        Thread simulationThread = new Thread(() -> {
+//        Thread simulationThread = new Thread(() -> {
             operationsQueue.addSimulation(totalNumberOfSimulaion);
-        });
-        simulationThread.start();
+//        });
+//        simulationThread.start();
 
 
         System.out.printf("Initializing deposit systen....");
